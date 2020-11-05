@@ -1,15 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { GameContext } from "./GameContext";
 
-const Home = () => {
+function Home(props) {
+  const { numCookies, setNumCookies } = React.useContext(GameContext);
+
   return (
     <Wrapper>
-      <Title>Cookie game</Title>
+      <Title>
+        {numCookies}
+        {setNumCookies}Cookie game
+      </Title>
       <Link to="/game">Go to game</Link>
     </Wrapper>
   );
-};
+}
 
 const Wrapper = styled.div`
   height: 100vh;
